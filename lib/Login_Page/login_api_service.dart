@@ -1,0 +1,26 @@
+import 'dart:convert';
+
+import 'package:http/http.dart' as http;
+import 'package:pas1_mobile_11pplg2_31/Login_Page/login_post_model.dart';
+
+class LoginApiService {
+  final String baseUrl = 'https://mediadwi.com/api/latihan/login';
+
+  Future<LoginPostModel> login(String username, String password) async {
+    final response = await http.post(
+      Uri.parse(baseUrl),
+      headers: {"Content-Type": "application/x-www-form-urlencoded"},
+      body: {
+        "username": username,
+        "password": password,
+      },
+    );
+
+    if (response.statusCode == 200) {
+      var data = json.decode(response.body);
+      return LoginPostModel.fromJson(data);
+    } else {
+      throw Exception('Failed to login');
+    }
+  }
+}
