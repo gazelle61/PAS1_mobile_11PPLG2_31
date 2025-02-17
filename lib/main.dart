@@ -21,7 +21,7 @@ class MyApp extends StatelessWidget {
       initialRoute: '/',
       getPages: [
         GetPage(
-          name: '/',
+          name: '/splash_screen',
           page: () => SplashScreen(),
         ),
         GetPage(
@@ -29,10 +29,7 @@ class MyApp extends StatelessWidget {
           page: () => LoginPage(),
         ),
         GetPage(
-          name: '/bottom_nav',
-          page: () => BottomNav(),
-          binding: MyBindings(),
-        ),
+            name: '/bottomnav', page: () => BottomNav(), binding: MyBindings()),
       ],
     );
   }

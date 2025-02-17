@@ -94,7 +94,7 @@ class Profile extends StatelessWidget {
                             trailing: Icon(Icons.arrow_forward_ios,
                                 color: Color(0xFFA73121)),
                             onTap: () {
-                              Get.toNamed('/home');
+                              Get.toNamed('/');
                             },
                           ),
                         ],

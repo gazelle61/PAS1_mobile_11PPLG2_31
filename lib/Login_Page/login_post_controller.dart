@@ -2,9 +2,9 @@ import 'package:get/get.dart';
 import 'package:pas1_mobile_11pplg2_31/Login_Page/login_api_service.dart';
 
 class LoginController extends GetxController {
-  var  isLoading = false.obs;
+  var isLoading = false.obs;
   var loginStatus = "".obs;
-  // var token = "".obs;
+  var token = "".obs;
 
   final LoginApiService loginService = LoginApiService();
 
@@ -13,8 +13,9 @@ class LoginController extends GetxController {
     try {
       final response = await loginService.login(username, password);
       if (response.status == true) {
+        
         loginStatus.value = response.message;
-        // token.value = response.token ?? '';
+        token.value = response.token ?? '';
       } else {
         loginStatus.value = "Login failed";
       }
